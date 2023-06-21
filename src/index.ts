@@ -1,1 +1,1 @@
-console.log("hello discord")
+import "./bot";
