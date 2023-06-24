@@ -14,7 +14,7 @@ export function createRestApi(client:Client){
     const thread = await client.channels.fetch(threadId as string) as ThreadChannel;
     if(!thread){return res.status(400).send("Thread with this id was not found")}
 
-    console.log("#####Thread######")
+    console.log("#####messages######");
     console.log(thread.messages)
     console.log("################");
     const message = await thread.messages.fetch()
