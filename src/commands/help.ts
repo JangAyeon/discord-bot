@@ -1,5 +1,6 @@
 import {SlashCommandBuilder} from "@discordjs/builders"
 import { CommandInteraction, Client, TextChannel } from "discord.js"
+import { createTicket } from "../firebase"
 
 export const data = new SlashCommandBuilder().setName("help").setDescription("Create a new help Ticket").addStringOption((option)=>option.setName("description").setDescription("tell me your problem").setRequired(true))
 
@@ -19,6 +20,7 @@ export async function execute(interaction:CommandInteraction, client:Client){
   **Problem:** ${problemDescription}`);
 
   //Todo: create ticket and store it in firebase
+  await createTicket(thread.id, problemDescription)
 
   return interaction.reply({
     content:"help is on the way",
