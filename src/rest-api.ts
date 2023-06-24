@@ -15,6 +15,7 @@ export function createRestApi(client:Client){
     if(!thread){return res.status(400).send("Thread with this id was not found")}
 
     const message = await thread.messages.fetch()
+    console.log(message)
     return res.status(200).send(JSON.stringify(message||[]))
   })
 
