@@ -5,6 +5,8 @@ export function createRestApi(client:Client){
   const app = express()
   app.use(express.json())
 
+  app.get("/", (req, res) => res.send("Deployed! 🚀"));
+
   app.get("/message", async(req,res)=>{
     const {threadId} = req.query
     if(!threadId){return res.status(400).send("Missing threadId")}
